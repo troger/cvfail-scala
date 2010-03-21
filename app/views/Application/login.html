@@ -1,0 +1,12 @@
+#{extends 'main.html' /}
+#{set title:'CV fail' /}
+
+#{if flash.error}
+<p class="error">${flash.error}</p>
+#{/if}
+
+<div id="openId">
+  <p>You need to be authenticated to post a new fail. You can authenticate through one of your account:</p>
+  <a href="@{Application.authenticate('google')}"><img src="@{'/public/images/google.gif'}"/></a>
+  <a href="@{Application.authenticate('yahoo')}"><img src="@{'/public/images/yahoo.gif'}"/></a>
+</div>
