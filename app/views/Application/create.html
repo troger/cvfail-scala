@@ -1,0 +1,17 @@
+#{extends 'main.html' /}
+#{set title:'CV fail' /}
+
+#{form @Application.postFail()}
+<p>
+  <label class="formLabel required" for="message">Message</label>
+  <textarea id="message" name="message"></textarea>
+</p>
+<p>
+  <label class="formLabel" for="sarcasm">Sarcasme</label>
+  <textarea id="sarcasm" name="sarcasm"></textarea>
+</p>
+
+<p class="buttonsContainer">
+  <input type="submit" value="Valider" class="button"/>
+</p>
+#{/form}

@@ -1,6 +1,10 @@
 #{extends 'main.html' /}
 #{set title:'CV fail' /}
 
+
+<div class="buttonsContainer">
+  <a href="@{Application.create()}" class="button">Ajouter un fail</a><br/>
+</div>
 #{if fails.size()}
 #{list items:fails, as:'fail'}
 <div class="fail">
@@ -17,3 +21,7 @@
   There is currently nothing to read here.
 </div>
 #{/else}
+
+<div class="buttonsContainer">
+  <a href="@{Application.create()}" class="button">Ajouter un fail</a><br/>
+</div>
