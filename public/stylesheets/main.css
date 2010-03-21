@@ -1,0 +1,114 @@
+body {
+	color: #333;
+	background-color: #ECECDF;
+	font-family: Trebuchet MS,arial,helvetica,sans-serif;
+	font-size:16px;
+	line-height:1.4em;
+}
+
+#content {margin: 0 20%;}
+
+h1 {
+	font-size:300%;
+	padding: 1em 1em 1em;
+	text-shadow:0 1px 0 #000;
+}
+
+p {
+	margin-bottom: 0.75em;
+}
+
+#header {
+	text-align: center;
+	padding: 0 2em 2em;
+	margin-bottom: 2em;
+	background-color: #474639;
+	color: #ccc;
+}
+
+.fail {
+	border: 1px solid #aaa;
+	margin: 1.5em 0;
+	padding: 1em;
+	background-color: #fff;
+	-moz-border-radius: 20px 0;
+    -webkit-border-radius: 20px 0;
+}
+
+blockquote {
+	display: block;
+	font-style: oblique;
+	color: #333;
+	margin-bottom: 1em;
+	font-family: Georgia, Times, "Times New Roman", serif;
+	background: url(../images/quote.png) no-repeat scroll 0 0;
+	min-height: 2em;
+	padding: 5px 2em 0 30px;
+}
+
+.fail > p {
+	color: #666;
+}
+
+.num {
+	font-size: 0.75em;
+	float: right;
+}
+.num:before {
+	content:"#"
+}
+.date {
+	font-size: 0.65em;
+	color: #666;
+}
+
+
+input {
+  padding: 2px;
+  border: 1px solid #999;
+}
+
+label {
+	width: 25%;
+	float: left;
+	margin-right: 1%;
+}
+	label.required {font-weight:bold;}
+	label.required:after{content:" *"}
+
+textarea {width: 50%; height: 9em;}
+
+
+.buttonsContainer{text-align: right;}
+form .buttonsContainer{text-align: left; margin-left: 26%;}
+
+.button {
+	color: #fff;
+    width: auto;
+    cursor: pointer;
+    padding: 0.2em 0.8em;
+    background: #3399CC url(../images/overlay-button.png) repeat-x scroll 0 0;
+    -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+    -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+    text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    border: 1px solid rgba(0,0,0,0.25);
+}
+    .button:hover {background:#007D9A none repeat scroll 0 0;}
+
+.feedback li {
+	margin-bottom:0.5em;
+	padding:0.7em;
+}
+.feedback li.feedbackPanelERROR {
+	background-color:#FFCCCC;
+	border:1px solid #FF0000;
+	color:#FF0000;
+}
+
+#openId {
+	background-color: #fff;
+	padding: 1em;
+	border: 1px solid #999;
+}

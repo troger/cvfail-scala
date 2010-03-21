@@ -1,4 +1,19 @@
 #{extends 'main.html' /}
-#{set title:'Home' /}
+#{set title:'CV fail' /}
 
-#{welcome /}
+#{if fails.size()}
+#{list items:fails, as:'fail'}
+<div class="fail">
+  <span class="num">${fail.id}</span>
+  <blockquote><p>${fail.message}</p></blockquote>
+  <p>${fail.sarcasm}</p>
+  <span class="date">${fail.postedAt.format('dd/MM/yy hh:mm')}</span>
+</div>
+#{/list}
+#{/if}
+
+#{else}
+<div class="empty">
+  There is currently nothing to read here.
+</div>
+#{/else}
