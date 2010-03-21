@@ -1,7 +1,7 @@
 #{extends 'main.html' /}
 #{set title:'CV fail' /}
 
-#{form @Application.postFail()}
+#{form @FailController.postFail()}
 #{ifErrors}
 <p class="error">
   ${errors[0]}

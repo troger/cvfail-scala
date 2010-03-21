@@ -11,17 +11,7 @@ object Application extends Controller {
   private val discoveryUrls = Map("google" -> "https://www.google.com/accounts/o8/id",
     "yahoo" -> "https://me.yahoo.com/")
 
-  def index = {
-    val fails = Fail.find("order by postedAt desc").fetch
-    render(fails)
-  }
 
-  def create = {
-    if(!session.contains("user")) {
-      login
-    }
-    render()
-  }
 
   def login = {
     render()
@@ -29,7 +19,7 @@ object Application extends Controller {
 
   def logout = {
     session.remove("user")
-    index
+    FailController.index
   }
 
   def authenticate(provider: String): Unit = {
@@ -40,21 +30,12 @@ object Application extends Controller {
             login
         }
         session.put("user", verifiedUser.id)
-        create
+        FailController.create
     } else {
       OpenID.id(discoveryUrls(provider)).verify
     }
   }
 
-  def postFail(@Required(message = "A message is required") message: String,
-               sarcasm: String) = {
-    if (Validation.hasErrors()) {
-      render("Application/create.html")
-    }
 
-    val newFail: Fail = new Fail(message, sarcasm).save()
-    flash.success("Thanks for adding a new fail")
-    index
-  }
 
 }

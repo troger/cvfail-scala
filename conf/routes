@@ -3,7 +3,8 @@
 # ~~~~
 
 # Home page
-GET     /                                       Application.index
+GET     /                                       FailController.index
+GET     /fail/create                            FailController.create
 GET     /authenticate                           Application.authenticate
 GET     /login                                  Application.login
 GET     /logout                                 Application.logout
