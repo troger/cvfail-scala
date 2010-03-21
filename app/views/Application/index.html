@@ -1,9 +1,12 @@
 #{extends 'main.html' /}
 #{set title:'CV fail' /}
 
+#{if flash.success}
+<p class="success">${flash.success}</p>
+#{/if}
 
 <div class="buttonsContainer">
-  <a href="@{Application.create()}" class="button">Ajouter un fail</a><br/>
+  <a href="@{Application.create()}" class="button">Add a new fail</a><br/>
 </div>
 #{if fails.size()}
 #{list items:fails, as:'fail'}
@@ -23,5 +26,5 @@
 #{/else}
 
 <div class="buttonsContainer">
-  <a href="@{Application.create()}" class="button">Ajouter un fail</a><br/>
+  <a href="@{Application.create()}" class="button">Add a new fail</a><br/>
 </div>

@@ -2,16 +2,21 @@
 #{set title:'CV fail' /}
 
 #{form @Application.postFail()}
+#{ifErrors}
+<p class="error">
+  ${errors[0]}
+</p>
+#{/ifErrors}
 <p>
   <label class="formLabel required" for="message">Message</label>
   <textarea id="message" name="message"></textarea>
 </p>
 <p>
-  <label class="formLabel" for="sarcasm">Sarcasme</label>
+  <label class="formLabel" for="sarcasm">Sarcasm</label>
   <textarea id="sarcasm" name="sarcasm"></textarea>
 </p>
 
 <p class="buttonsContainer">
-  <input type="submit" value="Valider" class="button"/>
+  <input type="submit" value="Submit" class="button"/>
 </p>
 #{/form}
