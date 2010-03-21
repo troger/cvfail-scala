@@ -1,0 +1,6 @@
+h1. CV Fail
+
+Web application built with "Play Framework":http://www.playframework.org/ and
+Scala "module":http://www.playframework.org/modules/scala.
+
+It's actually a port of the same application done in Java with Wicket.

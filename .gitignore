@@ -1,0 +1,11 @@
+syntax: glob
+*.iml
+*.ipr
+*.iws
+.DS_Store
+*.diff
+tmp
+logs
+test
+test-result
+
