@@ -9,6 +9,32 @@
   <a href="@{FailController.create()}" class="button">Add a new fail</a><br/>
 </div>
 #{if fails.size()}
+<div>
+  #{if offset > 0}
+  <a href="@{FailController.index(0)}">« Newest</a>
+  #{/if}
+  #{else}
+  « Newest
+  #{/else}
+  #{if offset > 0}
+  <a href="@{FailController.index(newer)}">‹ Newer</a>
+  #{/if}
+  #{else}
+  ‹ Newer
+  #{/else}
+  #{if showOlderLink }
+  <a href="@{FailController.index(older)}">Older ›</a>
+  #{/if}
+  #{else}
+  Older ›
+  #{/else}
+  #{if showOldestLink}
+  <a href="@{FailController.index(oldest)}">Oldest »</a>
+  #{/if}
+  #{else}
+  Oldest »
+  #{/else}
+</div>
 #{list items:fails, as:'fail'}
 <div class="fail">
   <span class="num">${fail.id}</span>

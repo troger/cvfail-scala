@@ -19,7 +19,7 @@ object Application extends Controller {
 
   def logout = {
     session.remove("user")
-    FailController.index
+    FailController.index()
   }
 
   def authenticate(provider: String): Unit = {
