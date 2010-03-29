@@ -9,6 +9,8 @@ GET     /authenticate                           Application.authenticate
 GET     /login                                  Application.login
 GET     /logout                                 Application.logout
 
+GET     /captcha                                FailController.captcha
+
 # Map static resources from the /app/public folder to the /public path
 GET     /public/                                staticDir:public
 

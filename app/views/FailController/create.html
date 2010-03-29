@@ -15,6 +15,15 @@
   <label class="formLabel" for="sarcasm">Sarcasm</label>
   <textarea id="sarcasm" name="sarcasm"></textarea>
 </p>
+<p>
+  <label for="code">Please type the code below: </label>
+  <img src="@{FailController.captcha(randomId)}"/>
+  <br/>
+</p>
+<p>
+  <input type="text" name="code" id="code" size="18" value=""/>
+  <input type="hidden" name="randomId" value="${randomId}"/>
+</p>
 
 <p class="buttonsContainer">
   <input type="submit" value="Submit" class="button"/>

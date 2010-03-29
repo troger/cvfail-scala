@@ -3,6 +3,8 @@ package controllers
 import models.Fail
 import play.data.validation.{Required, Validation}
 import play.mvc.{ScalaController, Controller}
+import play.cache.Cache
+import play.libs.{Codec, Images}
 
 /**
  * @author <a href="mailto:troger@nuxeo.com">Thomas Roger</a>
@@ -31,11 +33,15 @@ object FailController extends ScalaController {
     if (!session.contains("user")) {
       Application.login
     }
-    render()
+    val randomId = Codec.UUID
+    render(randomId)
   }
 
   def postFail(@Required(message = "A message is required") message: String,
-               sarcasm: String) = {
+               @Required(message = "Please type the code") code: String,
+               sarcasm: String, randomId: String) = {
+    validation.equals(code, Cache.get(randomId)).message("Invalid code. Please type it again")
+
     if (Validation.hasErrors()) {
       render("FailController/create.html")
     }
@@ -43,6 +49,13 @@ object FailController extends ScalaController {
     val newFail: Fail = new Fail(message, sarcasm).save()
     flash.success("Thanks for adding a new fail")
     index()
+  }
+
+  def captcha(id: String) {
+    val captcha = Images.captcha()
+    val code = captcha.getText("#E4EAFD")
+    Cache.set(id, code, "10mn")
+    renderBinary(captcha)
   }
 
 }
