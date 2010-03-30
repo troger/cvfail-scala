@@ -41,6 +41,18 @@
   <blockquote><p>${fail.message}</p></blockquote>
   <p>${fail.sarcasm}</p>
   <span class="date">${fail.postedAt.format('dd/MM/yy hh:mm')}</span>
+  <span>
+    #{if authenticated && fail.canVote(userId) }
+    <a href="@{FailController.plus(fail.id, offset)}">+</a>
+    #{/if}
+    ${fail.plusVotes.size()}
+  </span>
+  <span>
+    #{if authenticated && fail.canVote(userId) }
+    <a href="@{FailController.minus(fail.id, offset)}">-</a>
+    #{/if}
+    ${fail.minusVotes.size()}
+  </span>
 </div>
 #{/list}
 #{/if}

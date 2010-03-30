@@ -22,12 +22,14 @@ object FailController extends ScalaController {
     val newer: Any = if (FailsPerPage > offset) 0 else offset - FailsPerPage
     val showOlderLink = offset < failsCount - FailsPerPage
     val showOldestLink = showOlderLink
+    val userId = session.get("user")
+    val authenticated = session.contains("user")
     render(fails, offset.asInstanceOf[Object],
           oldest.asInstanceOf[Object], older.asInstanceOf[Object],
           newer.asInstanceOf[Object], showOlderLink.asInstanceOf[Object],
-          showOldestLink.asInstanceOf[Object])
+          showOldestLink.asInstanceOf[Object], authenticated.asInstanceOf[Object],
+          userId)
   }
-
 
   def create = {
     if (!session.contains("user")) {
@@ -53,9 +55,21 @@ object FailController extends ScalaController {
 
   def captcha(id: String) {
     val captcha = Images.captcha()
-    val code = captcha.getText("#E4EAFD")
+    val code = captcha.getText("#000000")
     Cache.set(id, code, "10mn")
     renderBinary(captcha)
+  }
+
+  def plus(failId: Long, currentOffset: Int) = {
+    val fail: Fail = Fail.findById(failId)
+    fail.addPlusVote(session.get("user"))
+    index(currentOffset)
+  }
+
+  def minus(failId: Long, currentOffset: Int) = {
+    val fail: Fail = Fail.findById(failId)
+    fail.addMinusVote(session.get("user"))
+    index(currentOffset)
   }
 
 }
