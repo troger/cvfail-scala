@@ -1,6 +1,19 @@
-h1. CV Fail
+h1. About
 
-Web application built with "Play Framework":http://www.playframework.org/ and
+CV Fail is a web application built with "Play Framework":http://www.playframework.org/ and
 Scala "module":http://www.playframework.org/modules/scala.
 
 It's actually a port of the same application done in Java with Wicket.
+
+
+h1. Installation
+
+* Download the latest play-1.1 "here":http://download.playframework.org/1.1-nightly/
+
+* Install and put it on your PATH
+
+* Install the scala module @play install scala@
+
+* Clone the cvfail-scala git repository
+
+* Launch the application using @play run@
