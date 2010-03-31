@@ -45,7 +45,7 @@ object FailController extends ScalaController {
     validation.equals(code, Cache.get(randomId)).message("Invalid code. Please type it again")
 
     if (Validation.hasErrors()) {
-      render("FailController/create.html")
+      render("FailController/create.html", randomId)
     }
 
     val newFail: Fail = new Fail(message, sarcasm).save()

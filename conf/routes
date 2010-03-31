@@ -5,6 +5,7 @@
 # Home page
 GET     /                                       FailController.index
 GET     /fail/create                            FailController.create
+GET     /fail/create/postFail                   FailController.postFail
 GET     /authenticate                           Application.authenticate
 GET     /login                                  Application.login
 GET     /logout                                 Application.logout
